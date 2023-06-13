@@ -1,6 +1,5 @@
 # [Stacks and Queues](https://wasifkhan.github.io/UTM-Interview/#/)
 
-## Stacks and Queues
 ### Introduction to Stacks
 * Definition
 * Visualization
