@@ -7,10 +7,31 @@
 ---
 
 ## Topics
+- Recap
 - Stack Data Structure
 - Exercise
 - Queue Data Structure
 - Exercise
+
+---
+
+## Recap
+- A linked list is a ***recursive data structure***
+- A ***linked list*** is either:
+- 1) Empty
+- or 
+- 2) A value and a reference to another linked list
+
+---
+
+## Recap
+- A linked list can be conceptualized as a chain
+- An individual link in the chain is called a ***list node***
+- The first link in the chain is called a ***head node***
+- The whole chain reachable from the head node is called a linked list
+
+![linked list](images/linked_list.png)
+<!-- .element class="fragment" -->
 
 ---
 
