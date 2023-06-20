@@ -53,12 +53,11 @@ class LinkedList:
 - A list node is an instance of the `ListNode` class:
 ```
 class ListNode:
-    def __init__(self, value, next=None):
+    def __init__(self, value, next_=None):
         self.value = value
-        self.next = next
+        self.next_ = next_
 ```
 - The Python constant `None` is used when there is no next node
-- This implementation deviates slightly from the mathematical definition
 
 ---
 
@@ -76,10 +75,7 @@ class ListNode:
 ```
 class LinkedList:
     def __str__(self):
-        if self.head:
-            return f"<{self.head}>"
-        else:
-            return "<>"
+        return f"<{self.head}>" if self.head else "<>"
 ```
 - Converting `self.head` to a string calls the `__str__` dunder method in the `ListNode` class
 
@@ -90,10 +86,7 @@ class LinkedList:
 ```
 class ListNode:
     def __str__(self):
-        if self.next:
-            return f"{self.value}, {self.next}"
-        else:
-            return str(self.value)
+        return f"{self.value}, {self.next_}" if self.next_ else str(self.value)
 ```
 - The recursive call is hidden, it happens when `self.next` is converted to a string
 - The runtime of this method is O(n)
@@ -164,12 +157,12 @@ class Stack:
         else:
             raise IndexError
     
-    def empty(self):
+    def is_empty?(self):
         if self.head_node:
             return False
         return True
 ```
-- `empty` returns a boolean value: `True` if the stack is empty, and `False` if the stack contains data
+- `is_empty?` returns a boolean value: `True` if the stack is empty, and `False` if the stack contains data
 - `peek` returns the top element of a stack without removing that element
 - Calling `peek` on an empty stack causes an `IndexError` exception be raised
 
