@@ -27,6 +27,15 @@ or
 
 ---
 
+## test
+1. Are on by 'default'
+1. You can write HTML lists
+
+(If you don't want them)
+1. and this
+
+---
+
 ## Linked List Recap - Visualization
 - A linked list can be conceptualized as a chain
 - An individual link in the chain is called a ***list node***
