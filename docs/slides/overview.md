@@ -17,12 +17,11 @@
 
 ## Linked List Recap - Definition
 - A linked list is a ***recursive data structure***
-- <code class="code-warning">Reminder:</code> Linked lists are not related to Python lists
 - A ***linked list*** is either:
-
-Empty
-or
-A value and a reference to another linked list
+- Empty
+- or
+- A value and a reference to another linked list
+- <code class="code-warning">Reminder:</code> Linked lists are not related to Python lists
 
 ---
 
