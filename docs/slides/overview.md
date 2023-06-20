@@ -7,7 +7,7 @@
 ---
 
 ## Topics
-- Recap
+- Linked List Recap
 - Stack Data Structure
 - Exercise
 - Queue Data Structure
@@ -15,16 +15,17 @@
 
 ---
 
-## Recap
+## Linked List Recap - Definition
 - A linked list is a ***recursive data structure***
 - A ***linked list*** is either:
 - 1) Empty
 - or 
 - 2) A value and a reference to another linked list
+- <code class="code-warning">Reminder:</code> Linked lists are not related to Python lists
 
 ---
 
-## Recap
+## Linked List Recap - Visualization
 - A linked list can be conceptualized as a chain
 - An individual link in the chain is called a ***list node***
 - The first link in the chain is called a ***head node***
@@ -32,6 +33,70 @@
 
 ![linked list](images/linked_list.png)
 <!-- .element class="fragment" -->
+
+---
+
+## Linked List Recap - Implementation
+- A linked list is an instance of the `LinkedList` class:
+```
+class LinkedList:
+    def __init__(self, head=None):
+        self.head = head
+```
+- A linked list only contains a reference to the head node
+- An empty linked list had no head node
+- The Python constant `None` is used to represent an absent head node
+
+---
+
+## Linked List Recap - Implementation
+- A list node is an instance of the `ListNode` class:
+```
+class ListNode:
+    def __init__(self, value, next=None):
+        self.value = value
+        self.next = next
+```
+- The Python constant `None` is used when there is no next node
+- This implementation deviates slightly from the mathematical definition
+
+---
+
+## Print Linked List
+- Python doesn't know how to print a linked list
+- <code class="code-info">Problem:</code> Implement the `LinkedList` dunder method `__str__`
+- `__str__` outputs the values in the linked list in order, starting from the head node
+- Angle brackets should be used to denote the start and end of the list
+- Commas should be used to separate the values in the list
+
+---
+
+## Print Linked List
+- Use the `__str__` method in the `LinkedList` class to output the outside angle brackets:
+```
+class LinkedList:
+    def __str__(self):
+        if self.head:
+            return f"<{self.head}>"
+        else:
+            return "<>"
+```
+- Converting `self.head` to a string calls the `__str__` dunder method in the `ListNode` class
+
+---
+
+## Print Linked List
+- Use the `__str__` dunder method in the `ListNode` class to process the recursion:
+```
+class ListNode:
+    def __str__(self):
+        if self.next:
+            return f"{self.value}, {self.next}"
+        else:
+            return str(self.value)
+```
+- The recursive call is hidden, it happens when `self.next` is converted to a string
+- The runtime of this method is O(n)
 
 ---
 
