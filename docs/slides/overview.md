@@ -7,14 +7,14 @@
 ---
 
 ## Topics
-- Introduction to Stacks
-- Stack Interview Problems
-- Introduction to Queues
-- Queue Interview Problems
+- Stack Data Structure
+- Exercise
+- Queue Data Structure
+- Exercise
 
 ---
 
-## Introduction to Stacks
+## Stack Data Structure
 - Definition
 - Visualization
 - Implementation
@@ -89,9 +89,8 @@ class Stack:
 
 ---
 
-## Stack Interview Problems
+## Exercise
 - Validate Enclosures
-- Stack with Minimum
 
 ---
 
@@ -137,43 +136,7 @@ def validate_enclosures(string):
 
 ---
 
-## Stack with Minimum
-- <code class="code-info">Problem:</code> Implement the `MinStack` class
-- `MinStack` is a stack that supports the `peek_min` method
-- `peek_min` returns the minimum element currently in the stack
-
----
-
-## Stack with Minimum
-- Use two stacks to implement `MinStack`
-```
-class MinStack:
-    def __init__(self):
-        self.stack = Stack()
-        self.min_stack = Stack()
-    
-    def push(self, value):
-        if self.min_stack.empty() or value <= self.min_stack.peek():
-            self.min_stack.push(value)
-        self.stack.push(value)
-    
-    def pop(self):
-        if self.stack.peek() == self.min_stack.peek():
-            self.min_stack.pop()
-        return self.stack.pop()
-    
-    def peek(self):
-        return self.stack.peek()
-    
-    def peek_min(self):
-        return self.min_stack.peek()
-```
-- One stack stores the data as normal
-- The other stack keeps the current minimum at the top, previous minimums underneath
-
----
-
-## Introduction to Queues
+## Queue Data Structure
 - Definition
 - Visualization
 - Implementation
@@ -244,46 +207,8 @@ class Queue:
 
 ---
 
-# Queue Interview Problems
-- Implement a Queue Using Stacks
+# Exercise
 - Reverse a Queue
-
----
-
-## Implement a Queue Using Stacks
-- A common problem is to implement a queue using two stacks
-- This is not an efficient way to implement a queue
-- `enqueue` and `dequeue` can no longer be constant, O(1) time
-- The strategy is to keep a left stack and a right stack
-- To `enqueue`, shift all elements to the right stack and push the new value on top
-- To `dequeue`, shift all elements to the left stack and pop off the top
-- This achieves the FIFO order of a queue, using two LIFO stacks
-
----
-
-## Implement a Queue Using Stacks
-- This is the implementation:
-```
-class Queue:
-    def __init__(self):
-        self.left_stack = Stack()
-        self.right_stack = Stack()
-
-    def enqueue(self, value):
-        while not self.left_stack.empty():
-            self.right_stack.push( self.left_stack.pop() )
-        self.right_stack.push(value)
-
-    def dequeue(self):
-        while not self.right_stack.empty():
-            self.left_stack.push( self.right_stack.pop() )
-        return self.left_stack.pop()
-
-    def empty(self):
-        if self.left_stack.empty() and self.right_stack.empty():
-            return True
-        return False
-```
 
 ---
 
