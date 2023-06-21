@@ -53,15 +53,12 @@ def test_exercises():
         for exercise in exercises:
             os.chdir(f"{exercise}/solution")
             import subprocess
-            print('got here')
 
             failure = subprocess.call("pytest test_solution.py", shell=True)
-            print('got here2')
             if failure:
                 raise AssertionError(
                     f"Model solution for {exercise} in {section} section failed tests"
                 )
-            print('got here3')
             os.chdir("../..")
         os.chdir("..")
     os.chdir("..")
