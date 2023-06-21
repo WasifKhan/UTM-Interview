@@ -17,7 +17,7 @@ def test_exercises():
             readme.close()
 
     # Go through each section and extract all the exercises
-    failed = False
+    fails = []
     for section in sections:
         os.chdir(section)
         # Go through each exercise and run tests against model solution
@@ -57,10 +57,12 @@ def test_exercises():
 
             failure = subprocess.call("pytest test_solution.py", shell=True)
             if failure:
-                failed = True
-                print (f"Model solution for {exercise} in {section} section failed tests")
+                fails.append(f"Model solution for {exercise} in {section} section failed tests")
             os.chdir("../..")
         os.chdir("..")
     os.chdir("..")
-    if failed:
-        raise AssertionError("Failed some exercises")
+    if fails:
+        for failure in fails:
+            print(failure)
+        print("\n\n")
+        raise AssertionError(f"Failed {len(fails)} exercises")
