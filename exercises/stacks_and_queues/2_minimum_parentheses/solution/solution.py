@@ -1,2 +1,2 @@
 def minimum_parentheses(s):
-  return ""
+  return 0
